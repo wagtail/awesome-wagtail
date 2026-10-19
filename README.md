@@ -52,6 +52,7 @@ _You might also like [Awesome Django](https://github.com/wsvincent/awesome-djang
 
 - [Wagtail CRX (CodeRed Extensions)](https://github.com/coderedcorp/coderedcms) - Wagtail + CodeRed Extensions enabling rapid development of marketing-focused websites.
 - [Puput](https://github.com/APSL/puput) - A Django blog app implemented in Wagtail.
+- [Commentail](https://github.com/hardcodd/Commentail) - Self-hosted comments for Wagtail with moderation, email-verified guests and threaded replies.
 
 ### Rich text editor extensions
 
