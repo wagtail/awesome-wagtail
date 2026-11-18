@@ -140,6 +140,7 @@ _You might also like [Awesome Django](https://github.com/wsvincent/awesome-djang
 - [Wagtail Content Import](https://github.com/torchbox/wagtail-content-import) - Import content from Google Docs or Docx into StreamFields, using a customisable mapping system.
 - [Wagtail Headless Preview](https://github.com/torchbox/wagtail-headless-preview) - Previews for headless Wagtail setups
 - [Wagtail-FEdit](https://github.com/Nigel2392/wagtail_fedit) - Add frontend editing to your Wagtail site.
+- [Wagtail Kanban Content Calendar](https://github.com/JR91387/wagtail-kanban-content-calendar) - Kanban board and editorial content calendar in the Wagtail admin; drag a card to schedule, submit or publish.
 
 ### Misc
 
