@@ -1,3 +1,8 @@
+# /// script
+# requires-python = ">=3.11"
+# dependencies = []
+# ///
+
 """
 This script parses the README.md and generates a machine-readable
 data structure from it, for publication as an API.

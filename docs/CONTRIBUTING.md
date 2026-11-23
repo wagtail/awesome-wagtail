@@ -47,6 +47,14 @@ Run Ruff's Python lint checks with the following command. Add `--fix` to apply a
 git ls-files -z '*.py' | xargs -0 uvx ruff@0.17.6 check
 ```
 
+## Python type checking
+
+Run ty through uv (CI uses uv 0.13.8). Each tracked Python script declares its Python version and dependencies in an inline metadata block so uv can check it in its own environment.
+
+```sh
+git ls-files -z '*.py' | xargs -0 -n 1 uv check --ty-version 0.0.108 --script
+```
+
 ## Reusing the content
 
 The content of this list is published as an API hosted on [GitHub Pages](https://pages.github.com/): [https://wagtail.github.io/awesome-wagtail/api/v1/readme.json](https://wagtail.github.io/awesome-wagtail/api/v1/readme.json).

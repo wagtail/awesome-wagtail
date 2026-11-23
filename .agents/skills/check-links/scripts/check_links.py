@@ -33,11 +33,11 @@ import sys
 import time
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
-from typing import Any
+from typing import Any, TypedDict
 
 import duckdb
 import httpx
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 
 REPO_CACHE_MAX_AGE = timedelta(hours=24)
 PAGE_CACHE_MAX_AGE = timedelta(days=30)
@@ -100,9 +100,16 @@ def log(msg: str, verbose: bool = False) -> None:
 # ── README Parsing (adapted from .github/api.py) ──────────────────────
 
 
-def parse_line(
-    line: str, section: str, subsection: str | None
-) -> dict[str, str] | None:
+class ParsedLink(TypedDict):
+    name: str
+    url: str
+    description: str
+    section: str
+    subsection: str | None
+    category: str
+
+
+def parse_line(line: str, section: str, subsection: str | None) -> ParsedLink | None:
     line = line.strip()
     if not line.startswith("- [") and not line.startswith("– ["):
         return None
@@ -123,9 +130,9 @@ def parse_line(
     }
 
 
-def parse_readme_links(readme: str) -> list[dict[str, str]]:
+def parse_readme_links(readme: str) -> list[ParsedLink]:
     lines = readme.split("\n")
-    links: list[dict[str, str]] = []
+    links: list[ParsedLink] = []
     current_section: str | None = None
     current_subsection: str | None = None
 
@@ -350,6 +357,11 @@ def extract_project_name(readme_content: str | None) -> str | None:
 # ── Web Page Metadata Fetching ───────────────────────────────────
 
 
+def text_attribute(tag: Tag | None, attribute: str) -> str | None:
+    value = tag.get(attribute) if tag else None
+    return value.strip() if isinstance(value, str) and value else None
+
+
 def fetch_page_metadata(url: str) -> dict[str, Any]:
     metadata: dict[str, Any] = {
         "page_title": None,
@@ -378,12 +390,12 @@ def fetch_page_metadata(url: str) -> dict[str, Any]:
     metadata["h1_title"] = h1.get_text(strip=True) if h1 else None
 
     meta_desc = soup.find("meta", attrs={"name": "description"})
-    if meta_desc and meta_desc.get("content"):
-        metadata["meta_description"] = meta_desc["content"].strip()
+    if (value := text_attribute(meta_desc, "content")) is not None:
+        metadata["meta_description"] = value
     else:
         meta_og_desc = soup.find("meta", attrs={"property": "og:description"})
-        if meta_og_desc and meta_og_desc.get("content"):
-            metadata["meta_description"] = meta_og_desc["content"].strip()
+        if (value := text_attribute(meta_og_desc, "content")) is not None:
+            metadata["meta_description"] = value
 
     metadata["author"] = find_author(soup)
 
@@ -394,22 +406,24 @@ def fetch_page_metadata(url: str) -> dict[str, Any]:
 
 def find_author(soup: BeautifulSoup) -> str | None:
     meta_author = soup.find("meta", attrs={"name": "author"})
-    if meta_author and meta_author.get("content"):
-        return meta_author["content"].strip()
+    if (value := text_attribute(meta_author, "content")) is not None:
+        return value
 
     twitter_creator = soup.find("meta", attrs={"name": "twitter:creator"})
-    if twitter_creator and twitter_creator.get("content"):
-        return twitter_creator["content"].strip()
+    if (value := text_attribute(twitter_creator, "content")) is not None:
+        return value
 
     article_author = soup.find("meta", attrs={"property": "article:author"})
-    if article_author and article_author.get("content"):
-        return article_author["content"].strip()
+    if (value := text_attribute(article_author, "content")) is not None:
+        return value
 
     rel_author = soup.find("link", attrs={"rel": "author"})
-    if rel_author and rel_author.get("href"):
-        return rel_author["href"].strip()
+    if (value := text_attribute(rel_author, "href")) is not None:
+        return value
 
     for script in soup.find_all("script", type="application/ld+json"):
+        if script.string is None:
+            continue
         try:
             data = json.loads(script.string)
             if isinstance(data, dict):
@@ -433,19 +447,21 @@ def find_author(soup: BeautifulSoup) -> str | None:
 def find_last_updated(soup: BeautifulSoup, response: httpx.Response) -> str | None:
     for meta_name in ("date", "revised", "dcterms.modified"):
         meta = soup.find("meta", attrs={"name": meta_name})
-        if meta and meta.get("content"):
-            return meta["content"].strip()
+        if (value := text_attribute(meta, "content")) is not None:
+            return value
 
     for meta_prop in ("article:modified_time", "article:published_time"):
         meta = soup.find("meta", attrs={"property": meta_prop})
-        if meta and meta.get("content"):
-            return meta["content"].strip()
+        if (value := text_attribute(meta, "content")) is not None:
+            return value
 
     time_tag = soup.find("time", attrs={"datetime": True})
-    if time_tag and time_tag.get("datetime"):
-        return time_tag["datetime"].strip()
+    if (value := text_attribute(time_tag, "datetime")) is not None:
+        return value
 
     for script in soup.find_all("script", type="application/ld+json"):
+        if script.string is None:
+            continue
         try:
             data = json.loads(script.string)
             if isinstance(data, dict):
@@ -728,7 +744,8 @@ def main() -> None:
 
     classified_links: list[dict[str, Any]] = []
 
-    for link in links:
+    for parsed_link in links:
+        link: dict[str, Any] = dict(parsed_link)
         url = link["url"]
         if is_youtube_url(url):
             link["link_type"] = "youtube"
@@ -789,10 +806,14 @@ def main() -> None:
                 log(f"  Fetching README for {owner}/{repo}...", verbose)
                 readme_content = fetch_github_readme(owner, repo)
                 if readme_content:
-                    link = next((l for l in non_cached_gh if l["url"] == url), None)
-                    if link:
-                        link["readme_content"] = readme_content
-                        link["project_name"] = extract_project_name(readme_content)
+                    matching_link = next(
+                        (l for l in non_cached_gh if l["url"] == url), None
+                    )
+                    if matching_link is not None:
+                        matching_link["readme_content"] = readme_content
+                        matching_link["project_name"] = extract_project_name(
+                            readme_content
+                        )
 
                 time.sleep(0.1)
 
@@ -888,14 +909,13 @@ def main() -> None:
 
     # ── Print cache stats ───────────────────────────────────
 
-    gh_cached = con.execute(
-        "SELECT COUNT(*) FROM link_metadata WHERE link_type = 'github'"
-    ).fetchone()[0]
-    web_cached = con.execute(
-        "SELECT COUNT(*) FROM link_metadata WHERE link_type = 'web'"
-    ).fetchone()[0]
+    counts = dict(
+        con.execute(
+            "SELECT link_type, COUNT(*) FROM link_metadata GROUP BY link_type"
+        ).fetchall()
+    )
     log(
-        f"\nCache stats: {gh_cached} GitHub repos, {web_cached} web pages stored in {args.db}",
+        f"\nCache stats: {counts.get('github', 0)} GitHub repos, {counts.get('web', 0)} web pages stored in {args.db}",
         verbose,
     )
 

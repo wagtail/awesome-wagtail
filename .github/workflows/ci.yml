@@ -38,6 +38,8 @@ jobs:
         run: git ls-files -z '*.py' | xargs -0 uvx ruff@0.17.6 check
       - name: Check Python formatting
         run: git ls-files -z '*.py' | xargs -0 uvx ruff@0.17.6 format --check
+      - name: Type-check Python
+        run: git ls-files -z '*.py' | xargs -0 -n 1 uv check --ty-version 0.0.108 --script
       - run: python .github/api.py
       - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
