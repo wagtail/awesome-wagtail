@@ -13,7 +13,7 @@ See also:
 """
 
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 API_PATH = "/api/v1/readme.json"
@@ -67,7 +67,7 @@ def parse_readme(readme: str) -> dict:
         "resources": parse_subsections(cut_section(readme, "Resources")),
         "sites": parse_section(cut_section(readme, "Open-source sites")),
         "metadata": {
-            "updated": datetime.now(timezone.utc).isoformat(),
+            "updated": datetime.now(UTC).isoformat(),
         },
     }
 

@@ -34,6 +34,8 @@ jobs:
       - name: Check Markdown formatting
         run: git ls-files -z '*.md' | xargs -0 npx --yes @biomejs/biome@2.6.8 format
       - run: python -m pip install uv==0.13.8
+      - name: Lint Python
+        run: git ls-files -z '*.py' | xargs -0 uvx ruff@0.17.6 check
       - name: Check Python formatting
         run: git ls-files -z '*.py' | xargs -0 uvx ruff@0.17.6 format --check
       - run: python .github/api.py

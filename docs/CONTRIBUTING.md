@@ -30,7 +30,7 @@ Please ensure your pull request adheres to the following guidelines.
 
 Thank you for your suggestions!
 
-## Formatting files
+## Formatting and linting
 
 From the repository root, run Biome for Markdown and Ruff for Python. These commands use Node.js and uv to run the same formatter versions as CI.
 
@@ -40,6 +40,12 @@ git ls-files -z '*.py' | xargs -0 uvx ruff@0.17.6 format
 ```
 
 Stage new Markdown and Python files first so Git includes them. To check formatting without editing files, omit `--write` from the Biome command and add `--check` after `format` in the Ruff command.
+
+Run Ruff's Python lint checks with the following command. Add `--fix` to apply available safe fixes.
+
+```sh
+git ls-files -z '*.py' | xargs -0 uvx ruff@0.17.6 check
+```
 
 ## Reusing the content
 

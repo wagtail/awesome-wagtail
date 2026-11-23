@@ -31,7 +31,7 @@ import re
 import subprocess
 import sys
 import time
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -53,14 +53,14 @@ def parse_date_utc(date_str: str | None) -> datetime | None:
     if not date_str:
         return None
     try:
-        dt = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
+        dt = datetime.fromisoformat(date_str)
         if dt.tzinfo is None:
-            return dt.replace(tzinfo=timezone.utc)
+            return dt.replace(tzinfo=UTC)
         return dt
     except (ValueError, TypeError):
         try:
             dt = datetime.strptime(date_str, "%a, %d %b %Y %H:%M:%S %Z")
-            return dt.replace(tzinfo=timezone.utc)
+            return dt.replace(tzinfo=UTC)
         except (ValueError, TypeError):
             return None
 
@@ -140,11 +140,10 @@ def parse_readme_links(readme: str) -> list[dict[str, str]]:
                 current_subsection = None
         elif line.startswith("### ") and current_section:
             current_subsection = line[4:].strip()
-        elif line.startswith("- [") or line.startswith("– ["):
-            if current_section:
-                link = parse_line(line, current_section, current_subsection)
-                if link:
-                    links.append(link)
+        elif current_section and line.startswith(("- [", "– [")):
+            link = parse_line(line, current_section, current_subsection)
+            if link:
+                links.append(link)
     return links
 
 
@@ -194,15 +193,14 @@ def init_db(db_path: str) -> duckdb.DuckDBPyConnection:
             page_last_updated VARCHAR
         )
     """)
-    # Migrate old schema: rename tags -> topics if needed
-    try:
-        con.execute("ALTER TABLE link_metadata DROP COLUMN tags")
-    except Exception:
-        pass
-    try:
-        con.execute("ALTER TABLE link_metadata ADD COLUMN topics VARCHAR")
-    except Exception:
-        pass
+    columns = {
+        row[1] for row in con.execute("PRAGMA table_info('link_metadata')").fetchall()
+    }
+    if "topics" not in columns:
+        if "tags" in columns:
+            con.execute("ALTER TABLE link_metadata RENAME COLUMN tags TO topics")
+        else:
+            con.execute("ALTER TABLE link_metadata ADD COLUMN topics VARCHAR")
     return con
 
 
@@ -211,7 +209,7 @@ def get_cached(
 ) -> dict[str, Any] | None:
     row = con.execute(
         "SELECT * FROM link_metadata WHERE url = ? AND fetched_at > ?",
-        [url, datetime.now(timezone.utc) - max_age],
+        [url, datetime.now(UTC) - max_age],
     ).fetchone()
     if row is None:
         return None
@@ -287,7 +285,7 @@ def fetch_github_batch(repos: list[tuple[str, str, str]]) -> dict[str, dict[str,
     try:
         data = json.loads(result.stdout)
     except json.JSONDecodeError:
-        log(f"  JSON parse error in GraphQL response", verbose=True)
+        log("  JSON parse error in GraphQL response", verbose=True)
         return {}
 
     url_to_repo = {url: (owner, repo) for url, owner, repo in repos}
@@ -332,9 +330,11 @@ def fetch_github_readme(owner: str, repo: str) -> str | None:
         return None
     try:
         data = json.loads(result.stdout)
-        content = data.get("content", "")
+        if not isinstance(data, dict) or not isinstance(data.get("content"), str):
+            return None
+        content = data["content"]
         return base64.b64decode(content).decode("utf-8")
-    except (json.JSONDecodeError, Exception):
+    except ValueError:
         return None
 
 
@@ -519,8 +519,8 @@ def generate_report(
     errors = [l for l in all_links if l.get("error")]
 
     lines.append("## Summary\n")
-    lines.append(f"| Metric | Count |")
-    lines.append(f"|--------|-------|")
+    lines.append("| Metric | Count |")
+    lines.append("|--------|-------|")
     lines.append(f"| Total links | {len(all_links)} |")
     lines.append(f"| GitHub repos | {len(gh_repos)} |")
     lines.append(f"| Web pages | {len(web_links)} |")
@@ -546,9 +546,7 @@ def generate_report(
             if link.get("new_title") and link["new_title"] != link.get("name"):
                 title_updates.append(link)
 
-            if is_archived:
-                auto_archive.append(link)
-            elif stale_date and stale_date > STALE_24_MONTHS:
+            if is_archived or stale_date and stale_date > STALE_24_MONTHS:
                 auto_archive.append(link)
             elif stale_date and stale_date > STALE_12_MONTHS:
                 needs_review.append(link)
@@ -726,7 +724,7 @@ def main() -> None:
     log("Initializing DuckDB cache...", verbose)
     con = init_db(args.db)
 
-    today = datetime.now(timezone.utc)
+    today = datetime.now(UTC)
 
     classified_links: list[dict[str, Any]] = []
 
@@ -803,7 +801,7 @@ def main() -> None:
                 "url": link["url"],
                 "link_type": "github",
                 "category": link.get("category", ""),
-                "fetched_at": datetime.now(timezone.utc),
+                "fetched_at": datetime.now(UTC),
                 "repo_full_name": link.get("repo_full_name"),
                 "repo_description": link.get("repo_description"),
                 "star_count": link.get("star_count"),
@@ -843,7 +841,7 @@ def main() -> None:
                 "url": link["url"],
                 "link_type": "web",
                 "category": link.get("category", ""),
-                "fetched_at": datetime.now(timezone.utc),
+                "fetched_at": datetime.now(UTC),
                 "page_title": page_data.get("page_title"),
                 "h1_title": page_data.get("h1_title"),
                 "meta_description": page_data.get("meta_description"),
