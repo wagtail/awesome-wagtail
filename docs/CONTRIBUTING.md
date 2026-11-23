@@ -27,9 +27,19 @@ Please ensure your pull request adheres to the following guidelines.
 - Start the description with a capital and end with a full stop/period.
 - Check your spelling and grammar.
 - Wagtail should be referred to as "Wagtail" instead of "Wagtail CMS", with a capital W.
-- Make sure your text editor is set to remove trailing whitespace.
 
 Thank you for your suggestions!
+
+## Formatting files
+
+From the repository root, run Biome for Markdown and Ruff for Python. These commands use Node.js and uv to run the same formatter versions as CI.
+
+```sh
+git ls-files -z '*.md' | xargs -0 npx --yes @biomejs/biome@2.6.8 format --write
+git ls-files -z '*.py' | xargs -0 uvx ruff@0.17.6 format
+```
+
+Stage new Markdown and Python files first so Git includes them. To check formatting without editing files, omit `--write` from the Biome command and add `--check` after `format` in the Ruff command.
 
 ## Reusing the content
 

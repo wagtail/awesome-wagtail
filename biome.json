@@ -1,0 +1,4 @@
+{
+  "formatter": { "useEditorconfig": true },
+  "markdown": { "parser": { "frontmatter": true } }
+}
