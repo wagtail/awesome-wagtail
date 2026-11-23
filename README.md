@@ -141,7 +141,7 @@ _You might also like [Awesome Django](https://github.com/wsvincent/awesome-djang
 
 ### Misc
 
-- [wagtailmenus](https://github.com/jazzband/wagtailmenus) - An app to help you manage and render menus in your Wagtail projects more effectively.
+- [wagtailmenus](https://github.com/wagtail-nest/wagtailmenus) - An app to help you manage and render menus in your Wagtail projects more effectively.
 - [Wagtail Gridder](https://github.com/wharton/wagtailgridder) - Grid card layout similar to Google image search results, with an expanded area for card details.
 - [Wagtail App Pages](https://github.com/mwesterhof/wagtail_app_pages) - Full MVC support for Wagtail pages, using an actual URL config and django views.
 - [Wagtail Cache](https://github.com/coderedcorp/wagtail-cache) - A simple page cache for Wagtail using the Django cache middleware.
@@ -374,7 +374,7 @@ _You might also like [Awesome Django](https://github.com/wsvincent/awesome-djang
 
 - [Wagtail demo project](https://github.com/wagtail/bakerydemo) – Next generation Wagtail demo, born in Reykjavík.
 - [Torchbox.com on Wagtail](https://github.com/torchbox/torchbox.com) – Torchbox website 2024 incarnation.
-- [Made with Wagtail](https://github.com/springload/madewithwagtail) - A showcase of sites and apps made with Wagtail CMS, the easy to use, open source Django content management system.
+- [Made with Wagtail](https://github.com/wagtail/madewithwagtail) - A showcase of sites and apps made with Wagtail CMS, the easy to use, open source Django content management system.
 - [Federal Election Commission](https://github.com/fecgov/fec-cms) – The content management system (CMS) for the new Federal Election Commission website.
 - [Bow Valley SPCA Website](https://github.com/nfletton/bvspca) – Wagtail/Django based website of the Bow Valley SPCA.
 - [SecureDrop](https://github.com/freedomofpress/securedrop.org) – Wagtail-powered code for the SecureDrop whistleblower document submission system website.
