@@ -195,6 +195,9 @@
 
 ## Community
 
+- [Wagtail updates on Telegram](https://telegram.me/wagtail) - Unofficial Telegram channel for general Wagtail updates.
+- [Wagtail support on Telegram](https://telegram.me/wagtailcms) - Unofficial Telegram channel for support questions and discussions.
+
 ## Open-source sites
 
 - [OpenCanada.org](https://github.com/CIGIHub/opencanada) – The opencanada.org website source.
