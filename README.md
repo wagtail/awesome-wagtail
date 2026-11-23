@@ -163,7 +163,6 @@ _You might also like [Awesome Django](https://github.com/wsvincent/awesome-djang
 
 ### Templates (start command)
 
-- [Wagtail template: Your first Wagtail site](https://github.com/thibaudcolas/wagtail-tutorial-template) - A Wagtail project starter template – with the solution to Wagtail's official Your first Wagtail site tutorial.
 - [Wagtail News Template](https://github.com/wagtail/news-template) - A Wagtail starter kit template for a news site.
 
 ## Resources

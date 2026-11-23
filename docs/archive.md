@@ -139,6 +139,8 @@
 
 ### Templates (start command)
 
+- [Wagtail template: Your first Wagtail site](https://github.com/thibaudcolas/wagtail-tutorial-template) - A Wagtail project starter template – with the solution to Wagtail's official Your first Wagtail site tutorial.
+
 ## Resources
 
 ### Getting started
