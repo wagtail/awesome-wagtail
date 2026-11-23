@@ -338,9 +338,6 @@ def fetch_github_readme(owner: str, repo: str) -> str | None:
         return None
 
 
-
-
-
 def extract_project_name(readme_content: str | None) -> str | None:
     if not readme_content:
         return None
