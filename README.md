@@ -43,7 +43,10 @@ _You might also like [Awesome Django](https://github.com/wsvincent/awesome-djang
 ## General resources
 
 - [Official site](https://wagtail.org/)
-- [GitHub repository](https://github.com/wagtail/wagtail)
+- [Code repository](https://github.com/wagtail/wagtail)
+- [Official demo](https://github.com/wagtail/bakerydemo)
+- [User guide](https://guide.wagtail.org/)
+- [Developer docs](https://docs.wagtail.org/)
 - [Project roadmap](https://wagtail.org/roadmap/)
 
 ## Apps
@@ -355,16 +358,16 @@ _You might also like [Awesome Django](https://github.com/wsvincent/awesome-djang
 
 - [Wagtail third-party packages](https://wagtail.org/packages/) - Official list based on PyPI data.
 - [Framework: Wagtail on PyPI](https://pypi.org/search/?c=Framework+%3A%3A+Wagtail) - Packages tagged as `Framework: Wagtail`.
+- [GitHub: Wagtail topic](https://github.com/topics/wagtail) - Repositories on GitHub tagged with the `wagtail` topic.
 - [Wagtail grid - Django Packages](https://djangopackages.org/grids/g/wagtail-cms/) - Wagtail projects and packages on Django Packages.
 
-## For editors
+### Documentation for editors
 
-- [Wagtail user guide](https://guide.wagtail.org/) - The official user guide for anyone creating content or managing content production in Wagtail
-- [How Do I Wagtail?](https://www.mozillafoundation.org/en/docs/how-do-i-wagtail/) - Mozilla's editor facing guide for how to use Wagtail's admin interface.
+- [Mozilla Foundation: How Do I Wagtail?](https://www.mozillafoundation.org/en/docs/how-do-i-wagtail/) - Mozilla's editor facing guide for how to use Wagtail's admin interface.
 - [CCA Wagtail Editor Portal](https://portal.cca.edu/help/wagtail-documentation/) - User facing documentation for Wagtail by California College of the Arts
 - [Caltech Wagtail Editor Portal](https://sites.caltech.edu/) - User facing documentation for Wagtail by Caltech
 
-## Community
+### Community
 
 - [Wagtail Space](https://www.wagtail.space/) - Wagtail training sessions, Wagtail (lightning) talks and a Wagtail sprint. From March 13th until 15th 2019, Wagtail Space takes place in Arnhem, The Netherlands.
 - [Wagtail updates on Telegram](https://telegram.me/wagtail) - Unofficial Telegram channel for general Wagtail updates.
@@ -372,7 +375,6 @@ _You might also like [Awesome Django](https://github.com/wsvincent/awesome-djang
 
 ## Open-source sites
 
-- [Wagtail demo project](https://github.com/wagtail/bakerydemo) – Next generation Wagtail demo, born in Reykjavík.
 - [Torchbox.com on Wagtail](https://github.com/torchbox/torchbox.com) – Torchbox digital agency website.
 - [Federal Election Commission](https://github.com/fecgov/fec-cms) – The content management system (CMS) for the new Federal Election Commission website.
 - [Bow Valley SPCA Website](https://github.com/nfletton/bvspca) – Wagtail/Django based website of the Bow Valley SPCA.
