@@ -21,9 +21,11 @@
 - [Wagtail Medium Editor](https://github.com/dperetti/Django-wagtailmedium) - A customizable Medium Editor for Wagtail, with link anchors support.
 - [WagtailDraftail](https://github.com/springload/wagtaildraftail) – Draft.js editor for Wagtail, built upon [Draftail](https://github.com/wagtail/draftail) and [draftjs_exporter](https://github.com/wagtail/draftjs_exporter).
 - [Wagtail Text Alignment](https://github.com/Nigel2392/wagtail_text_alignment) - Align text, headings and more in your Wagtail richtext editor.
+- [wagtailmdx](https://github.com/julinodev/wagtailmdx) - A [MDXEditor](https://github.com/mdx-editor/editor) integration for Wagtail as textfield widget.
 
 ### Widgets
 
+- [Wagtail Ace Editor](https://github.com/Nigel2392/wagtail_ace_editor) - Ace Editor right in your Wagtail admin.
 - [wagtail-leaflet-widget](https://github.com/icpac-igad/wagtail-leaflet-widget) - A Leaflet JS - OSM based wagtail geo-location widget.
 - [wagtail-multi-upload](https://github.com/spapas/wagtail-multi-upload) - allows uploading of multiple related images for a page.
 
@@ -95,6 +97,7 @@
 
 ### Testing
 
+- [wagtail-linkchecker](https://github.com/neon-jungle/wagtail-linkchecker) - A tool to assist with finding broken links on your Wagtail site.
 - [Wagtail Foliage](https://github.com/harrislapiroff/wagtail-foliage) - Utilities for programmatically building page trees in Wagtail.
 
 ### Modeladmin
@@ -113,6 +116,8 @@
 
 ### Misc
 
+- [Wagtail Orderable](https://github.com/elton2048/wagtail-orderable) - Mixin support for drag-and-drop ordering in admin panel.
+- [Wagtail Cache Invalidator](https://github.com/vicktornl/wagtail-cache-invalidator) - Invalidate and purge (frontend) cache via an user-friendly interface in the Wagtail CMS.
 - [Wagtail Condensed Inline Panel](https://github.com/wagtail-deprecated/wagtail-condensedinlinepanel) - Drop-in replacement for Wagtail's InlinePanel suited for large number of inlines (collapsible with drag and drop support).
 - [Joyous](https://github.com/linuxsoftware/ls.joyous) - A calendar application for Wagtail.
 - [Wagtail GraphQL](https://github.com/tr11/wagtail-graphql) - App to automatically add GraphQL support to a Wagtail website.
@@ -145,6 +150,7 @@
 - [Setting Up Foundation Sass With Wagtail](https://vix.digital/insights/setting-foundation-sass-wagtail/)
 - [Upgrading to Wagtail 2.0](https://wagtail.org/blog/upgrading-to-wagtail-2/) – Wagtail 2.0 is one of our biggest releases to date.
 - [Migrating your Drupal content to Wagtail](https://web.archive.org/web/20240929021314/https://medium.com/@kevinhowbrook/migrating-your-drupal-content-to-wagtail-d43bb34529e8)
+- [How To Prevent Users From Creating Certain Page Types in Wagtail CMS](https://timonweb.com/wagtail/how-to-prevent-users-from-creating-certain-page-types-in-wagtail-cms/)
 - [How to Add Buttons to ModelAdmin Index View](https://timonweb.com/wagtail/how-to-add-buttons-to-modeladmin-index-view-in-wagtail-cms/)
 - [Extending The Functionality of Email Forms in Wagtail](https://lb.ee/posts/dev-wagtail-extending-the-functionality-of-email-forms-232c8469ac97/)
 - [Python CMS Framework Review: Wagtail vs Django-CMS](https://saashammer.com/blog/python-cms-framework-review-wagtail-vs-django-cms/) - Talk about the difference between Django-CMS and Wagtail, the two most popular CMS framework in Python world.
@@ -162,6 +168,8 @@
 ### Presentations
 
 ### Podcasts
+
+- [Podcast.\_\_init\_\_ Episode 58 - Wagtail with Tom Dyson](https://www.pythonpodcast.com/episodepage/episode-58-wagtail-with-tom-dyson) - In this episode Tom Dyson explains how Wagtail came to be created, what sets it apart from other options, and when you should implement it for your projects.
 
 ### Videos
 

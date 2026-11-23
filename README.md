@@ -58,7 +58,6 @@ _You might also like [Awesome Django](https://github.com/wsvincent/awesome-djang
 
 - [Wagtail EditorJS](https://github.com/Nigel2392/wagtail_editorjs) - An [EditorJS](https://editorjs.io/) widget with great support for Wagtail's page, image and document choosers.
 - [Wagtail Terms](https://github.com/smark-1/wagtailterms) - A plugin to add a glossary terms entity to the Draftail editor.
-- [wagtailmdx](https://github.com/julinodev/wagtailmdx) - A [MDXEditor](https://github.com/mdx-editor/editor) integration for Wagtail as textfield widget.
 
 ### Widgets
 
@@ -69,7 +68,6 @@ _You might also like [Awesome Django](https://github.com/wsvincent/awesome-djang
 - [wagtail-instance-selector](https://github.com/ixc/wagtail-instance-selector) - A `ForeignKey` widget to create and select related items. Similar to Django's `raw_id_fields`.
 - [wagtail-generic-chooser](https://github.com/wagtail/wagtail-generic-chooser) - provides base classes for building chooser popups and form widgets for the Wagtail admin, matching the look and feel of Wagtail's built-in choosers for pages, documents, snippets and images.
 - [Wagtail-Color-Panel](https://github.com/marteinn/wagtail-color-panel) - A package that adds new panels for selecting colors, works both on regular page fields and stream field.
-- [Wagtail Ace Editor](https://github.com/Nigel2392/wagtail_ace_editor) - Ace Editor right in your Wagtail admin.
 - [wagtail-html-editor](https://github.com/kkm-horikawa/wagtail-html-editor) - Enhanced HTML editor block for Wagtail CMS with CodeMirror 6, syntax highlighting, Emmet support, and fullscreen mode.
 
 ### StreamField
@@ -92,13 +90,13 @@ _You might also like [Awesome Django](https://github.com/wsvincent/awesome-djang
 ### SEO and SMO
 
 - [wagtail-meta-preview](https://github.com/Frojd/wagtail-meta-preview) - Wagtail Meta Preview provides panels for previewing Facebook sharing, Twitter sharing and Google search results in the Wagtail admin.
-- [Wagtail Yoast](https://github.com/Aleksi44/wagtailyoast) - A tool to improve readability of your texts with SEO recommendations.
+- [Wagtail Yoast](https://github.com/Aleksi44/wagtailyoast) - Wagtail + Yoast: improve readability of your texts with SEO recommendations.
 - [Wagtail SEO](https://github.com/coderedcorp/wagtail-seo) - Search engine and social media optimization for Wagtail.
 
 ### Customer experience
 
 - [Wagtail Experiments](https://github.com/torchbox/wagtail-experiments) – A/B testing for Wagtail.
-- [Wagtail Personalisation](https://github.com/wagtail-nest/wagtail-personalisation) - Personalisation module, enabling editors to create customised pages - or parts of pages - based on segments whose rules are configured directly in the admin interface.
+- [Wagtail Personalisation](https://github.com/wagtail-nest/wagtail-personalisation) - Rule-based personalisation, enabling editors to create customised pages - or parts of pages - based on segments whose rules are configured directly in the admin interface.
 
 ### Security
 
@@ -107,7 +105,7 @@ _You might also like [Awesome Django](https://github.com/wsvincent/awesome-djang
 ### Media
 
 - [wagtailmedia](https://github.com/torchbox/wagtailmedia) - A Wagtail module for managing video and audio files within the admin.
-- [Wagtail Transcription](https://github.com/j-bodek/wagtail-transcription) - Provides a field to automatically creates transcriptions from YouTube videos.
+- [Wagtail Transcription](https://github.com/j-bodek/wagtail-transcription) - Provides a field to automatically create transcriptions from YouTube videos.
 
 ### Translations
 
@@ -120,11 +118,10 @@ _You might also like [Awesome Django](https://github.com/wsvincent/awesome-djang
 - [Wagtail ReCaptcha](https://github.com/wagtail-nest/wagtail-django-recaptcha) - wagtail-django-captcha provides an easy way to integrate the [django-recaptcha](https://github.com/django-recaptcha/django-recaptcha) field when using the Wagtail formbuilder.
 - [Wagtail Jotform](https://github.com/torchbox/wagtail-jotform) - A plugin for using jotforms in wagtail.
 - [Wagtail Model Forms](https://github.com/vicktornl/wagtail-model-forms) - The Wagtail Form Builder functionalities available for your models/snippets.
-- [Wagtail Formation](https://github.com/mwesterhof/wagtail_formation) - Fully dynamic and easy to use CMS-able forms for wagtail
+- [Wagtail Formation](https://github.com/mwesterhof/wagtail_formation) - Fully dynamic and easy to use CMS-able forms for wagtail.
 
 ### Testing
 
-- [wagtail-linkchecker](https://github.com/neon-jungle/wagtail-linkchecker) - A tool to assist with finding broken links on your Wagtail site.
 - [Wagtail Accessibility](https://github.com/wagtail-nest/wagtail-accessibility) – ✅ Accessibility content checks for Wagtail websites.
 - [Wagtail Factories](https://github.com/wagtail/wagtail-factories) - Factory boy classes for Wagtail.
 
@@ -146,15 +143,13 @@ _You might also like [Awesome Django](https://github.com/wsvincent/awesome-djang
 
 - [wagtailmenus](https://github.com/jazzband/wagtailmenus) - An app to help you manage and render menus in your Wagtail projects more effectively.
 - [Wagtail Gridder](https://github.com/wharton/wagtailgridder) - Grid card layout similar to Google image search results, with an expanded area for card details.
-- [Wagtail App Pages](https://github.com/mwesterhof/wagtail_app_pages) - Extend Wagtail pages using an actual URL config and django views.
+- [Wagtail App Pages](https://github.com/mwesterhof/wagtail_app_pages) - Full MVC support for Wagtail pages, using an actual URL config and django views.
 - [Wagtail Cache](https://github.com/coderedcorp/wagtail-cache) - A simple page cache for Wagtail using the Django cache middleware.
-- [Wagtail Orderable](https://github.com/elton2048/wagtail-orderable) - Mixin support for drag-and-drop ordering in admin panel.
 - [Wagtail Resume](https://github.com/adinhodovic/wagtail-resume) – A Wagtail project made to simplify creation of resumes for developers.
 - [Wagtail Trash](https://github.com/Frojd/wagtail-trash) - Instead of deleting pages when pressing delete, pages will get thrown into the "Trash Can".
 - [wagtail-pdf-view](https://github.com/donhauser/wagtail-pdf) - PDF rendering views for the Wagtail CMS.
 - [Wagtail Grapple](https://github.com/torchbox/wagtail-grapple) - A Wagtail app that makes building GraphQL endpoints a breeze.
-- [Wagtail Cache Invalidator](https://github.com/vicktornl/wagtail-cache-invalidator) - Invalidate and purge (frontend) cache via an user-friendly interface in the Wagtail CMS.
-- [wagtail-subscriptions](https://github.com/mojnomiya/wagtail_subscriptions) - Subscription management system for Wagtail CMS with Stripe integration, feature-based access control, and multi-tenant support.
+- [wagtail-subscriptions](https://github.com/mojnomiya/wagtail_subscriptions) - Subscription management system for Wagtail with Stripe integration, feature-based access control, and multi-tenant support.
 
 ## Tools
 
@@ -169,7 +164,7 @@ _You might also like [Awesome Django](https://github.com/wsvincent/awesome-djang
 ### Templates (start command)
 
 - [Wagtail template: Your first Wagtail site](https://github.com/thibaudcolas/wagtail-tutorial-template) - A Wagtail project starter template – with the solution to Wagtail's official Your first Wagtail site tutorial.
-- [Wagtail News Template](https://github.com/wagtail/news-template) - A Wagtail template for a news site.
+- [Wagtail News Template](https://github.com/wagtail/news-template) - A Wagtail starter kit template for a news site.
 
 ## Resources
 
@@ -183,7 +178,6 @@ _You might also like [Awesome Django](https://github.com/wsvincent/awesome-djang
 
 - [Wagtail Tutorials: Build Blog Step by Step](https://saashammer.com/blog/wagtail-tutorials/) - The tutorials teach you how to create a standard blog from scratch step by step.
 - [Multi-tenancy with Wagtail](https://cynthiakiser.com/blog/2023/11/01/multitenancy-with-wagtail.html) - Multiple part guide on robust multi-tenancy support in Wagtail.
-- [How to Prevent Users from Creating Pages by Type](https://timonweb.com/wagtail/how-to-prevent-users-from-creating-certain-page-types-in-wagtail-cms/)
 - [How to Create and Manage Menus of Wagtail application](https://saashammer.com/blog/how-to-create-and-manage-menus-in-wagtail/)
 
 ### Presentations
@@ -337,7 +331,6 @@ _You might also like [Awesome Django](https://github.com/wsvincent/awesome-djang
 
 ### Podcasts
 
-- [Podcast.\_\_init\_\_ Episode 58 - Wagtail with Tom Dyson](https://www.pythonpodcast.com/episodepage/episode-58-wagtail-with-tom-dyson) - In this episode Tom Dyson explains how Wagtail came to be created, what sets it apart from other options, and when you should implement it for your projects.
 - [Django Chat E9: Wagtail CMS - Tom Dyson](https://djangochat.com/episodes/wagtail-cms-tom-dyson) - An interview with Tom Dyson on Wagtail, the leading Django-based CMS used by tens of thousands of organizations including Google, NASA, and the British NHS.
 - [Django Chat E84: Dawn Wages](https://djangochat.com/episodes/wagtail-react-gatsby-dawn-wages-RaD8k37m) - An interview with Dawn Wages, a core Wagtail team member. Discussion about Wagtail, React and Gatsby.
 - [Django Chat E168: Thibaud Colas](https://djangochat.com/episodes/thibaud-colas-2025-dsf-board-nominations) - An interview with a core team member of Wagtail, discussing the current status of Django, upcoming DSF Board elections, Wagtail roadmap & community opportunities.
@@ -356,7 +349,7 @@ _You might also like [Awesome Django](https://github.com/wsvincent/awesome-djang
 
 ### Showcases
 
-- [Offiical showcase - Projects made with Wagtail](https://wagtail.org/showcase/) - Curated list of websites and apps that gives you a taste of the very best projects built with Wagtail.
+- [Official showcase - Projects made with Wagtail](https://wagtail.org/showcase/) - Curated list of websites and apps that gives you a taste of the very best projects built with Wagtail.
 - [Made with Wagtail](https://madewithwagtail.org/) - A showcase of sites and apps made with Wagtail CMS.
 
 ### Package lists
@@ -385,7 +378,7 @@ _You might also like [Awesome Django](https://github.com/wsvincent/awesome-djang
 - [Made with Wagtail](https://github.com/springload/madewithwagtail) - A showcase of sites and apps made with Wagtail CMS, the easy to use, open source Django content management system.
 - [Federal Election Commission](https://github.com/fecgov/fec-cms) – The content management system (CMS) for the new Federal Election Commission website.
 - [Bow Valley SPCA Website](https://github.com/nfletton/bvspca) – Wagtail/Django based website of the Bow Valley SPCA.
-- [SecureDrop](https://github.com/freedomofpress/securedrop.org) – Wagtail-powered website of the SecureDrop whistleblower document submission system.
+- [SecureDrop](https://github.com/freedomofpress/securedrop.org) – Wagtail-powered code for the SecureDrop whistleblower document submission system website.
 - [consumerfinance.gov](https://github.com/cfpb/consumerfinance.gov) – Django project protecting American consumers.
 - [Western Friend website](https://github.com/WesternFriend/westernfriend.org) - A website for Western Friend (westernfriend.org), a Quaker publication that provides resources and support for Quaker communities and individuals seeking to live out their faith in the world. Western Friend is part of the Religious Society of Friends.
 - [Outreachy website](https://github.com/outreachy/website) - Code for the Outreachy website, based on Python, Django, and Bootstrap.
