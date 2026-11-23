@@ -373,8 +373,7 @@ _You might also like [Awesome Django](https://github.com/wsvincent/awesome-djang
 ## Open-source sites
 
 - [Wagtail demo project](https://github.com/wagtail/bakerydemo) – Next generation Wagtail demo, born in Reykjavík.
-- [Torchbox.com on Wagtail](https://github.com/torchbox/torchbox.com) – Torchbox website 2024 incarnation.
-- [Made with Wagtail](https://github.com/wagtail/madewithwagtail) - A showcase of sites and apps made with Wagtail CMS, the easy to use, open source Django content management system.
+- [Torchbox.com on Wagtail](https://github.com/torchbox/torchbox.com) – Torchbox digital agency website.
 - [Federal Election Commission](https://github.com/fecgov/fec-cms) – The content management system (CMS) for the new Federal Election Commission website.
 - [Bow Valley SPCA Website](https://github.com/nfletton/bvspca) – Wagtail/Django based website of the Bow Valley SPCA.
 - [SecureDrop](https://github.com/freedomofpress/securedrop.org) – Wagtail-powered code for the SecureDrop whistleblower document submission system website.
