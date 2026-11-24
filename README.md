@@ -36,7 +36,7 @@ _You might also like [Awesome Django](https://github.com/wsvincent/awesome-djang
   - [Videos](#videos)
   - [Showcases](#showcases)
   - [Package lists](#package-lists)
-- [For editors](#for-editors)
+- [Documentation for editors](#documentation-for-editors)
 - [Community](#community)
 - [Open-source sites](#open-source-sites)
 
@@ -385,7 +385,7 @@ _You might also like [Awesome Django](https://github.com/wsvincent/awesome-djang
 
 ## Contribute
 
-Contributions are always welcome! Please read the [contribution guidelines](docs/CONTRIBUTING.md) first.
+Contributions are always welcome! Please read the [contribution guidelines](https://github.com/wagtail/awesome-wagtail/blob/main/docs/CONTRIBUTING.md) first.
 
 ## License
 
