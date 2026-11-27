@@ -16,7 +16,7 @@ Please ensure your pull request adheres to the following guidelines.
 
 - Search previous suggestions before making a new one, as yours may be a duplicate.
 - Make an individual pull request for each suggestion, with a useful title.
-- Additions should be added to the bottom of the relevant category.
+- Additions should be added to the top of the relevant subsection.
 - New categories, or improvements to the existing categorization are welcome.
 
 ### Formatting
@@ -29,6 +29,25 @@ Please ensure your pull request adheres to the following guidelines.
 - Wagtail should be referred to as "Wagtail" instead of "Wagtail CMS", with a capital W.
 
 Thank you for your suggestions!
+
+### Formatting items under "Resources"
+
+Everything under [Resources](../README.md#resources) ends with the resource's **last significant update**, in backticks:
+
+```markdown
+- [Wagtail Tutorials: Build Blog Step by Step](https://saashammer.com/blog/wagtail-tutorials/) - The tutorials teach you how to create a standard blog from scratch step by step - `2023-06-21`.
+```
+
+- Use `YYYY-MM-DD` when known. If only the month or year is verifiable, use `YYYY-MM` or `YYYY` instead.
+- Use the date of the content itself (publish date, or last meaningful revision), not the date you added it to this list.
+- Add new items at the top of the relevant subsection — Resources are ordered latest first.
+- Descriptions always end with a single full stop, before the date.
+
+Each subsection heading has an HTML comment explaining whether it is auto-archived. Items in **Getting started**, **Articles**, **Presentations** and **Videos** are automatically moved to the [archive](archive.md) once they have not been updated for 5 years. **Podcasts**, **Showcases** and **Package lists** are curated manually and never archived automatically.
+
+Leave these comments in place when you edit nearby content, and do not add blank placeholder entries: empty subsections use a `- None yet.` line.
+
+Resource dates and descriptions are checked by CI. Missing or invalid dates, and descriptions that do not end with a full stop, fail the build.
 
 ## Formatting and linting
 
