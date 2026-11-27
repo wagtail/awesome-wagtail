@@ -284,11 +284,18 @@
 
 - None yet.
 
-## For editors
+## General resources
+
+- [Wagtail user guide](https://guide.wagtail.org/) - The official user guide for anyone creating content or managing content production in Wagtail.
+
+## Documentation for editors
 
 - [IoGT Wagtail CMS](https://cms-manual.goodinternet.org/en/) - User facing documentation for Wagtail by the IoGT (Internet of Good Things).
 
 ## Community
+
+- [Wagtail updates on Telegram](https://telegram.me/wagtail) - Unofficial Telegram channel for general Wagtail updates.
+- [Wagtail support on Telegram](https://telegram.me/wagtailcms) - Unofficial Telegram channel for support questions and discussions.
 
 ## Open-source sites
 
